@@ -1,0 +1,6 @@
+# vs code settings
+/.vscode
+# obvious?
+/node_modules
+# don't commit build output
+/dist
