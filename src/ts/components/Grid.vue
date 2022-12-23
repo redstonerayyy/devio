@@ -1,7 +1,16 @@
 <template>
     <div class="flex row-container">
-        <div class="flex row" v-for="row in rows">
-            <Digit v-for="bit in row" :digit="bit" />
+        <div class="flex row" v-for="(row, rowindex) in rows">
+            <Digit
+                v-for="(bit, bitindex) in row"
+                :digit="bit"
+                :style="
+                    makestyle(rowindex == activerow && bitindex == activebit)
+                "
+                :rowindex="rowindex"
+                :bitindex="bitindex"
+                @digitselect="digitselect"
+            />
         </div>
     </div>
 </template>
@@ -13,7 +22,10 @@ export default {
     components: { Digit },
     props: ["number"],
     data() {
-        return {};
+        return {
+            activerow: 0,
+            activebit: 0,
+        };
     },
     computed: {
         numberstring() {
@@ -37,6 +49,14 @@ export default {
         // https://stackoverflow.com/questions/9939760/how-do-i-convert-an-integer-to-binary-in-javascript
         dec2bin(dec: number) {
             return (dec >>> 0).toString(2);
+        },
+        digitselect(rowindex: number, bitindex: number) {
+            console.log(rowindex, bitindex);
+            this.activerow = rowindex;
+            this.activebit = bitindex;
+        },
+        makestyle(active: boolean) {
+            return active ? { color: "red" } : { color: "black" };
         },
     },
 };

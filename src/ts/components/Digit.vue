@@ -1,10 +1,13 @@
 <template>
-    <div class="digit">{{ digit }}</div>
+    <div @click="$emit('digitselect', rowindex, bitindex)" class="digit">
+        {{ digit }}
+    </div>
 </template>
 
 <script lang="ts">
 export default {
-    props: ["digit", "active"],
+    props: ["digit", "rowindex", "bitindex"],
+    emits: ["digitselect"],
 };
 </script>
 
