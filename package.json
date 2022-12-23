@@ -6,7 +6,7 @@
   "license": "AGPL-3.0-or-later",
   "scripts": {
     "dev": "yarn run vite serve",
-    "build": "yarn run vite build",
+    "build": "yarn run vite build && mv dist/src/index.html dist/index.html && rm -rf dist/src",
     "clean": "rm -rf ./dist"
   },
   "devDependencies": {
