@@ -1,5 +1,5 @@
 <template>
-    <Grid number="20" />
+    <Grid />
 </template>
 
 <script lang="ts">
@@ -11,9 +11,11 @@ export default {
 </script>
 
 <style>
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
 * {
     margin: 0px;
     padding: 0px;
+    font-family: "Open Sans", sans-serif;
 }
 
 .flex {

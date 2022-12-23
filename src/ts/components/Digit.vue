@@ -1,5 +1,5 @@
 <template>
-    <div @click="$emit('digitselect', rowindex, bitindex)" class="digit">
+    <div @click="clicked" class="digit">
         {{ digit }}
     </div>
 </template>
@@ -8,12 +8,17 @@
 export default {
     props: ["digit", "rowindex", "bitindex"],
     emits: ["digitselect"],
+    methods: {
+        clicked() {
+            this.$emit("digitselect", this.rowindex, this.bitindex);
+        },
+    },
 };
 </script>
 
 <style scoped>
 .digit {
-    font-size: 30px;
-    margin: 10px 20px;
+    font-size: 50px;
+    padding: 10px 30px;
 }
 </style>
