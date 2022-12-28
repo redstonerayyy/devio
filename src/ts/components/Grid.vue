@@ -61,7 +61,6 @@ export default {
             return (dec >>> 0).toString(2);
         },
         digitselect(rowindex: number, bitindex: number) {
-            console.log(rowindex, bitindex);
             this.activerow = rowindex;
             this.activebit = bitindex;
         },
@@ -70,7 +69,6 @@ export default {
         },
         keypress(ev: KeyboardEvent) {
             if (ev.key == "0" || ev.key == "1") {
-                console.log(this.rows[this.activerow][this.activebit]);
                 this.rows[this.activerow][this.activebit] = Number(ev.key);
                 if (this.activebit < 7) {
                     this.activebit++;
