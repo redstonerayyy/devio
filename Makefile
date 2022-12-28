@@ -1,4 +1,5 @@
 make-docker:
+	npm run build
 	docker build -t devio .
 
 start-docker:
