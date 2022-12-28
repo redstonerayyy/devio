@@ -33,13 +33,9 @@ export default {
     computed: {
         result() {
             let temp = this.rows.flat().reverse();
-            let sum = 0;
-            for (let i = 0; i < temp.length; i++) {
-                if (temp[i] == "1") {
-                    sum += Math.pow(2, i);
-                }
-            }
-            return sum;
+            let bigint = BigInt("0b" + temp.reverse().join(""));
+            // use bigint, because normal 64 bit double does not have enough precision
+            return BigInt.asUintN(64, bigint);
         },
     },
     methods: {
